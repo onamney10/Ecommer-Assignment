@@ -1,0 +1,76 @@
+<h1 mat-dialog-title>Add New Product</h1>
+<form [formGroup]="AddProductForm" (ngSubmit)="onSubmit()">
+  <mat-card appearance="outlined" class="matcard">
+    <mat-card-header class="login">Add New Product</mat-card-header>
+    <mat-form-field class="example-full-width">
+      <mat-label>Select Category</mat-label>
+      <mat-select formControlName="CatId">
+        @for(item of cat;track cat[idx].id ;let idx = $index){
+        <mat-option [value]="cat[idx].id">{{ cat[idx].name }}</mat-option>
+        }
+      </mat-select>
+
+      @if(CatId.invalid &&( CatId.dirty || CatId.touched)){
+      @if(CatId.errors?.['required']){
+      <small class="colo"> Category is required</small>
+      } }
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Enter Title</mat-label>
+      <input
+        matInput
+        type="id"
+        placeholder="enter Title"
+        formControlName="title"
+      />
+      @if(title.invalid &&( title.dirty || title.touched)){
+      @if(title.errors?.['required']){
+      <small class="colo"> Title is required</small>
+      } }
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Enter Description</mat-label>
+      <input
+        matInput
+        type="id"
+        placeholder="enter Description"
+        formControlName="description"
+      />
+      @if(description.invalid &&( description.dirty || description.touched)){
+      @if(description.errors?.['required']){
+      <small class="colo"> Description is required</small>
+      } }
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Enter Image</mat-label>
+      <input
+        matInput
+        type="id"
+        placeholder="enter Image"
+        formControlName="image"
+      />
+      @if(image.invalid &&( image.dirty || image.touched)){
+      @if(image.errors?.['required']){
+      <small class="colo"> Image is required</small>
+      } }
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Enter Price</mat-label>
+      <input
+        matInput
+        type="id"
+        placeholder="enter Price"
+        formControlName="price"
+      />
+      @if(price.invalid &&( price.dirty || price.touched)){
+      @if(price.errors?.['required']){
+      <small class="colo"> Description is required</small>
+      } }
+    </mat-form-field>
+  </mat-card>
+  <div mat-dialog-actions>
+    <button mat-raised-button type="submit" [disabled]="AddProductForm.invalid">
+      Submit
+    </button>
+  </div>
+</form>

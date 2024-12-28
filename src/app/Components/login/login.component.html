@@ -1,0 +1,46 @@
+@if(showspinner){
+<div class="spinner-overlay"><mat-spinner></mat-spinner></div>
+}
+<form [formGroup]="registerform" (ngSubmit)="onSubmit()">
+  <mat-card appearance="outlined" class="matcard">
+    <mat-card-header class="login">Login </mat-card-header>
+    <mat-form-field class="example-full-width">
+      <mat-label>Enter Email</mat-label>
+      <input
+        matInput
+        placeholder="pat@example.com"
+        type="email"
+        formControlName="email"
+      />
+      @if(email.invalid &&( email.dirty || email.touched)){
+      @if(email.errors?.['required']){
+      <small class="colo"> Email is required</small>
+      } @if(email.errors?.['email']){
+      <small class="colo">Email should be valid</small>
+      } }
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Enter Password</mat-label>
+      <input
+        matInput
+        type="password"
+        placeholder="enter password"
+        formControlName="password"
+      />
+      @if(password.invalid &&( password.dirty || password.touched)){
+      @if(password.errors?.['required']){
+      <small class="colo"> password is required</small>
+      } }
+    </mat-form-field>
+
+    <div class="button-container">
+      <button mat-raised-button type="submit" [disabled]="registerform.invalid">
+        Submit
+      </button>
+    </div>
+  </mat-card>
+</form>
+<div class="register">
+  <button mat-raised-button (click)="taketoregister()">Register</button>
+</div>

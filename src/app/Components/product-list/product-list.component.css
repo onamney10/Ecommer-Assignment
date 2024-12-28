@@ -1,0 +1,14 @@
+.card {
+  width: 200px;
+  border: 0.5px solid blueviolet;
+  padding: 0px;
+  height: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+}
+h1 {
+  font-size: 15px;
+  color: burlywood;
+}

@@ -1,0 +1,40 @@
+<h1 mat-dialog-title>Add New Category</h1>
+<form [formGroup]="AddCategoryForm" (ngSubmit)="onSubmit()">
+  <mat-card appearance="outlined" class="matcard">
+    <mat-card-header class="login">Add Category</mat-card-header>
+    <mat-form-field class="example-full-width">
+      <mat-label>Enter name</mat-label>
+      <input
+        matInput
+        type="id"
+        placeholder="enter name"
+        formControlName="name"
+      />
+      @if(id.invalid &&( id.dirty || id.touched)){ @if(id.errors?.['required']){
+      <small class="colo"> Id is required</small>
+      } }
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Enter image</mat-label>
+      <input
+        matInput
+        type="id"
+        placeholder="enter image"
+        formControlName="image"
+      />
+      @if(name.invalid &&( name.dirty || name.touched)){
+      @if(name.errors?.['required']){
+      <small class="colo"> name is required</small>
+      } }
+    </mat-form-field>
+  </mat-card>
+  <div mat-dialog-actions>
+    <button
+      mat-raised-button
+      type="submit"
+      [disabled]="AddCategoryForm.invalid"
+    >
+      Submit
+    </button>
+  </div>
+</form>

@@ -1,0 +1,23 @@
+<mat-grid-list cols="3" gutterSize="10px">
+  @for(item of productList(); track item.id){
+  <mat-grid-tile>
+    <div class="card">
+      <h1>{{ item.title }}</h1>
+      <img src="" [alt]="'pic'" />
+      <div class="priceanddescription">
+        <p>price {{ item.price }}</p>
+      </div>
+      <div class="updateDelete">
+        <button mat-button (click)="deleteProduct(item.id)">DELETE</button>
+        <button mat-button (click)="updateProduct(item.id)">UPDATE</button>
+      </div>
+      <div class="increment"></div>
+      <app-incrmentcomponent
+        [price]="item.price"
+        [title]="item.title"
+        [productId]="item.id"
+      ></app-incrmentcomponent>
+    </div>
+  </mat-grid-tile>
+  }
+</mat-grid-list>

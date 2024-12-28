@@ -1,0 +1,70 @@
+@if(showspinner){
+<div class="spinner-overlay"><mat-spinner></mat-spinner></div>
+}
+
+<mat-grid-list cols="3">
+  <mat-grid-tile rowspan="2">
+    <div class="sidebar">
+      <div class="xxc">
+        <h1>Categories</h1>
+        <a routerLink="cart" mat-raised-button>Cart</a>
+      </div>
+
+      <div class="button-group">
+        <div>
+          <app-button-add (emitedValue)="onAdd($event)"></app-button-add>
+        </div>
+        <div>
+          <app-button-update
+            (emitedValue)="onUpdate($event)"
+          ></app-button-update>
+        </div>
+        <div>
+          <app-button-delete
+            (emitedValue)="onDelete($event)"
+          ></app-button-delete>
+        </div>
+        <div>
+          <app-add-product-button
+            [categoryLi]="categories"
+            (emitedValue)="AddNewProduct($event)"
+          ></app-add-product-button>
+        </div>
+      </div>
+      <div class="list-categories">
+        @for(item of categories;track item.id){
+        <app-categories-list
+          [categoryList]="item"
+          [nameCat]="item.name"
+          [idCat]="item.id"
+          (emitid)="showProduct($event)"
+        ></app-categories-list>
+        }
+      </div>
+    </div>
+  </mat-grid-tile>
+
+  <!--  -->
+
+  <!--  -->
+  <mat-grid-tile colspan="2" rowspan="2">
+    <div class="cc">
+      <app-product-list
+        [productList]="ProductList"
+        (emitededelete)="ondeletePro($event)"
+        (emitedupdateObj)="onupdate($event)"
+      ></app-product-list>
+    </div>
+  </mat-grid-tile>
+
+  <!-- <div class="add-new-product">
+    <app-add-new-product
+      [categories]="categories"
+      (emitedValue)="AddNewProduct($event)"
+    ></app-add-new-product>
+  </div> -->
+
+  <!-- @if(true){
+<app-cart></app-cart>
+} -->
+</mat-grid-list>

@@ -1,0 +1,7 @@
+.list-style {
+  list-style: none;
+  cursor: pointer;
+}
+.selected {
+  color: blue;
+}

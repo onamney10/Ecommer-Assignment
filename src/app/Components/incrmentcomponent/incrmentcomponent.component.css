@@ -1,0 +1,8 @@
+.container {
+  display: flex;
+  align-items: center;
+}
+.btn-ctn {
+  display: flex;
+  align-items: center;
+}

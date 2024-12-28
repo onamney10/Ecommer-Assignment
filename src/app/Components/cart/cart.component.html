@@ -1,0 +1,24 @@
+<body>
+  <div class="container">
+    <h1>Your Cart</h1>
+    @for(item of cartingList;track $index;let idx = $index){
+    @if(item.productId){
+    <div class="cart-item">
+      <div class="product-info">
+        <img src="" alt="Product Image" />
+        <div>
+          <span>{{ item.title }}</span>
+          <span class="price">${{ item.price }}</span>
+        </div>
+      </div>
+      <div class="actions">
+        <p>Quantity:{{ item.quantity }}</p>
+      </div>
+    </div>
+    } }
+  </div>
+  <div class="container-btn">
+    <a (click)="onPro()" mat-raised-button>Back to products</a>
+    <a mat-raised-button (click)="onCheckout()"> Checkout</a>
+  </div>
+</body>
